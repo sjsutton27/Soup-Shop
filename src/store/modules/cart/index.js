@@ -1,6 +1,6 @@
 import cartMutations from "./mutations.js"
 import cartActions from "./actions.js"
-import counterGetters from "./getters.js"
+import cartGetters from "./getters.js"
 
 export default {
   namespaced: true,
