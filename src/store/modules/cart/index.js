@@ -5,7 +5,10 @@ import cartGetters from "./getters.js"
 export default {
   namespaced: true,
   state() {
-    return {}
+    return {
+      cart: [],
+      totalPrice: 0
+    }
   },
   mutations: cartMutations,
   actions: cartActions,
