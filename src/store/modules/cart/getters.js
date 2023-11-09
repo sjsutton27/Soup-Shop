@@ -5,7 +5,8 @@ const getCart = (state) => {
 function getTotal(state) {
   var currentTotal = 0
   if (state.cart && state.cart.length === 0) {
-    state.totalPrice = 0
+    currentTotal = 0
+    state.totalPrice = currentTotal
     return state.totalPrice
   }
   state.cart.forEach((item) => {

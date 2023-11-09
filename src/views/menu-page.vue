@@ -7,10 +7,13 @@
         ><br />
         <span>{{ item.price }}</span
         ><br />
-        <span>Quantity: <input type="number" min="0" :value="item.quantity" /></span>
+        <span>Quantity: <input type="number" min="0" v-model="item.quantity" /></span>
         <br />
       </p>
-      <button class="add-cart" @click="addToCart(item.id, item.quantity, item.price)">
+      <button
+        class="add-cart"
+        @click="addToCart(item.id, item.image, item.name, item.quantity, item.price)"
+      >
         Add to Cart
       </button>
     </div>
@@ -68,21 +71,31 @@ export default {
     }
   },
   methods: {
-    addToCart(idItem, quantityItem, priceItem) {
-      this.$store.commit("cart/setItemInCart", idItem, quantityItem, priceItem)
+    addToCart(idItem, imageItem, nameItem, quantityItem, priceItem) {
+      const id = idItem
+      const image = imageItem
+      const name = nameItem
+      const quantity = quantityItem
+      const price = priceItem
+
+      this.$store.commit("cart/setItemInCart", { id, image, name, quantity, price })
     }
   }
 }
 </script>
 
 <style scoped>
+.menu {
+  display: flex;
+  flex-direction: column;
+}
 .card {
   border: 1px solid black;
   border-radius: 20px;
   margin: 10px;
   padding: 10px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: lightgray;
 }
 
 .menu-item-img {
