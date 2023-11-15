@@ -1,13 +1,12 @@
 <template>
-  <form @submit.prevent="Submit">
+  <form @submit.prevent="submit">
     <label for="">Email</label>
     <input type="text" v-model="form.email" required />
     <br />
     <label for="">Password</label>
     <input type="password" v-model="form.password" required />
     <br />
-    <button type="submit">Login</button>
-    <!--{{ $store.state.login.email ? "Logout" : "Login" }}-->
+    <button type="submit">{{ $store.state.authentication.email ? "Logout" : "Login" }}</button>
   </form>
 </template>
 
@@ -22,18 +21,18 @@ export default {
     }
   },
   methods: {
-    Submit() {
-      if (this.$store.state.login.email) {
-        this.$store.commit("login/isLogin", this.form.email)
+    submit() {
+      if (this.$store.getters["authentication/getEmail"]) {
+        this.$store.commit("authentication/isLogout")
         this.form.email = "" // clear the input after login
         this.form.password = "" // clear the input after login
       } else {
-        this.$store.commit("login/isLogout")
+        this.$store.commit("authentication/isLogin", this.form.email)
       }
     }
   },
   mounted() {
-    this.$store.commit("login/initializeStore")
+    this.$store.commit("authentication/initializeStore")
   }
 }
 </script>

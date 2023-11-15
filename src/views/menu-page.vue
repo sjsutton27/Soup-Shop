@@ -119,6 +119,6 @@ export default {
 }
 
 button:hover {
-  background-color: #2980b9;
+  opacity: 0.8;
 }
 </style>

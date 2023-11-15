@@ -15,3 +15,9 @@ const initializeStore = (state) => {
     state.email = localStorage.getItem("email")
   }
 }
+
+export default {
+  isLogin,
+  isLogout,
+  initializeStore
+}

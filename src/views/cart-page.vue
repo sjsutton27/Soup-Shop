@@ -92,6 +92,6 @@ export default {
 }
 
 button:hover {
-  background-color: red;
+  opacity: 0.8;
 }
 </style>

@@ -21,12 +21,13 @@ export default {
   data() {
     return {
       logo: "Soup Shop",
-      navItems: ["Home", "Menu", "Cart", "Login"],
+      navItems: ["Home", "Menu", "Cart", "Login", "Register"],
       routes: {
         Home: "/",
         Menu: "/menu",
         Cart: "/cart",
-        Login: "/login"
+        Login: "/login",
+        Register: "/register"
       }
     }
   },
