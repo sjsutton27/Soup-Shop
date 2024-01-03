@@ -1,10 +1,16 @@
 <template>
   <form @submit.prevent="submit">
-    <label for="">Email</label>
-    <input type="text" v-model="form.email" required />
+    <label for="email">Email</label>
+    <input type="text" id="email" v-model="form.email" required placeholder="Enter your email..." />
     <br />
-    <label for="">Password</label>
-    <input type="password" v-model="form.password" required />
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      v-model="form.password"
+      required
+      placeholder="Enter your password..."
+    />
     <br />
     <button type="submit">{{ $store.state.authentication.email ? "Logout" : "Login" }}</button>
   </form>
