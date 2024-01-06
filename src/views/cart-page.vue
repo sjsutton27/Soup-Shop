@@ -18,6 +18,9 @@
     <h3 v-else>No Items in Cart</h3>
     <p class="cart-total">Total in cart: ${{ total }}</p>
   </div>
+  <div>
+    <button class="confirm" @click="confirmOrder">Confirm Order</button>
+  </div>
 </template>
 
 <script>
@@ -36,6 +39,9 @@ export default {
     },
     reduceQuantity(id) {
       this.$store.commit("cart/decreaseItemQuantity", id)
+    },
+    confirmOrder() {
+      this.$router.push("/confirm")
     }
   }
 }
@@ -93,5 +99,15 @@ export default {
 
 button:hover {
   opacity: 0.8;
+}
+
+.confirm {
+  background-color: green;
+  border: 1px solid lightgreen;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
 }
 </style>

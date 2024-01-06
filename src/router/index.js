@@ -4,6 +4,7 @@ import Menu from "../views/menu-page.vue"
 import Cart from "../views/cart-page.vue"
 import Login from "../views/login-page.vue"
 import Register from "../views/register-page.vue"
+import Confirm from "../views/confirm-page.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,11 @@ const router = createRouter({
       path: "/register",
       name: "register-page",
       component: Register
+    },
+    {
+      path: "/confirm",
+      name: "confirm-page",
+      component: Confirm
     }
   ]
 })
