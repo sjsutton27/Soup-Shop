@@ -15,9 +15,12 @@ const initializeStore = (state) => {
     state.email = localStorage.getItem("email")
   }
 }
-
+const registerUser = (state, payload) => {
+  state.users.push(payload)
+}
 export default {
   isLogin,
   isLogout,
-  initializeStore
+  initializeStore,
+  registerUser
 }
