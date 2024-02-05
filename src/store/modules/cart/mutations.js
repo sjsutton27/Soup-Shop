@@ -29,8 +29,13 @@ const decreaseItemQuantity = (state, id) => {
   }
 }
 
+const clearCart = (state) => {
+  state.cart = []
+}
+
 export default {
   setItemInCart,
   removeItemInCart,
-  decreaseItemQuantity
+  decreaseItemQuantity,
+  clearCart
 }

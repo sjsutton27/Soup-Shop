@@ -21,16 +21,16 @@ export default {
   data() {
     return {
       logo: "Soup Shop",
-      navItems: ["Home", "Menu", "Cart", "Login", "Register"],
+      navItems: ["Home", "Menu", "Cart", "Authentication"],
       routes: {
         Home: "/",
         Menu: "/menu",
         Cart: "/cart",
-        Login: "/login",
-        Register: "/register"
+        Authentication: "/auth"
       }
     }
   },
+  computed: {},
   methods: {
     getRoute(nav) {
       return this.routes[nav]

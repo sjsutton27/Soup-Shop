@@ -20,6 +20,7 @@
   </div>
   <div>
     <button class="confirm" @click="confirmOrder">Confirm Order</button>
+    <button class="clear" @click="clearCart">Clear Cart</button>
   </div>
 </template>
 
@@ -39,6 +40,9 @@ export default {
     },
     reduceQuantity(id) {
       this.$store.commit("cart/decreaseItemQuantity", id)
+    },
+    clearCart() {
+      this.$store.dispatch("cart/clearCart")
     },
     confirmOrder() {
       this.$router.push("/confirm")
@@ -102,8 +106,17 @@ button:hover {
 }
 
 .confirm {
-  background-color: green;
+  background-color: rgba(0, 216, 0, 0.711);
   border: 1px solid lightgreen;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.clear {
+  background-color: rgb(251, 50, 0);
+  border: 1px solid lightcoral;
   padding: 10px;
   border-radius: 20px;
   cursor: pointer;

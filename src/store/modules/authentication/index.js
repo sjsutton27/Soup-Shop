@@ -1,17 +1,17 @@
-import authenticationMutations from "./mutations.js"
-import authenticationActions from "./actions.js"
-import authenticationGetters from "./getters.js"
+import mutations from "./mutations.js"
+import actions from "./actions.js"
+import getters from "./getters.js"
 
 export default {
   namespaced: true,
   state() {
     return {
-      email: "",
-      users: [],
-      isLoggedIn: false
+      userId: null,
+      token: null,
+      tokenExpiration: null
     }
   },
-  mutations: authenticationMutations,
-  actions: authenticationActions,
-  getters: authenticationGetters
+  mutations,
+  actions,
+  getters
 }
