@@ -105,7 +105,7 @@ export default {
 }
 
 .add-cart {
-  background-color: orange;
+  background-color: rgb(255, 166, 0);
   border: 1px solid orangered;
   padding: 10px;
   border-radius: 20px;

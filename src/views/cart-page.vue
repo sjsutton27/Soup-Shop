@@ -120,6 +120,7 @@ button:hover {
 .confirm {
   background-color: rgba(0, 216, 0, 0.711);
   border: 1px solid lightgreen;
+  color: white;
   padding: 10px;
   border-radius: 20px;
   cursor: pointer;
@@ -129,6 +130,7 @@ button:hover {
 .clear {
   background-color: rgb(251, 50, 0);
   border: 1px solid lightcoral;
+  color: white;
   padding: 10px;
   border-radius: 20px;
   cursor: pointer;

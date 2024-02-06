@@ -10,6 +10,7 @@
       Feel free to browse through our menu, select your desired items, and proceed to place your
       order for convenient pickup at our store.
     </p>
+    <p>After exploring our Menu, head over to the Cart to confirm your order.</p>
   </section>
 </template>
 
