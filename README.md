@@ -1,3 +1,5 @@
+The Soup-Shop is a comprehensive web application built with the Vue framework for the frontend, while Firebase serves as the backend, providing real-time database and authentication functionalities.
+
 # Soup_Shop
 
 This template should help get you started developing with Vue 3 in Vite.
