@@ -66,17 +66,22 @@ export default {
         return
       }
       //send http request...
-      if (this.mode === "login") {
-        await this.$store.dispatch("authentication/login", {
-          email: this.email,
-          password: this.password
-        })
-      } else {
-        //dispatches our action.js in auth modules
-        await this.$store.dispatch("authentication/register", {
-          email: this.email,
-          password: this.password
-        })
+      try {
+        if (this.mode === "login") {
+          await this.$store.dispatch("authentication/login", {
+            email: this.email,
+            password: this.password
+          })
+        } else {
+          //dispatches our action.js in auth modules
+          await this.$store.dispatch("authentication/register", {
+            email: this.email,
+            password: this.password
+          })
+        }
+        this.$router.replace("/home")
+      } catch (err) {
+        this.error = err.message || "Failed to authenticate, check your login"
       }
     },
     switchAuthMode() {

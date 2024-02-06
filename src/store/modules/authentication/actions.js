@@ -65,23 +65,3 @@ export default {
     })
   }
 }
-
-// async registerData(context, data) {
-//   const userId = context.rootGetters.userId
-//   const userData = {
-//     email: data.email,
-//     password: data.password
-//   }
-
-//   const response = await fetch(
-//     `https://soup-shop-e2841-default-rtdb.firebaseio.com/register/${userId}.json`,
-//     {
-//       method: "POST", //PUT allows us to not change on unique ID
-//       body: JSON.stringify(userData)
-//     }
-//   )
-//   if (!response.ok) {
-//     //error ...
-//   }
-//   context.commit("registerData", { ...registerData, id: userId })
-// }

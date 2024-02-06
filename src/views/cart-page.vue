@@ -45,6 +45,16 @@ export default {
       this.$store.dispatch("cart/clearCart")
     },
     confirmOrder() {
+      // Get the cart items
+      const cartItems = this.$store.getters["cart/getCart"]
+      console.log(cartItems)
+      // Dispatch the cartItem action for each item in the cart
+      cartItems.forEach((item) => {
+        console.log(item)
+        this.$store.dispatch("cart/cartItem", item)
+      })
+
+      // Redirect to confirmation page
       this.$router.push("/confirm")
     }
   }
