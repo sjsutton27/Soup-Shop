@@ -5,6 +5,7 @@
       Explore a variety of delicious soups made with love and high-quality ingredients. Whether
       you're a fan of hearty stews or chilies, we have something for every soup lover!
     </p>
+    <p>Navigate to Authentication to Register or Login if you are a recurring member.</p>
     <p>
       Feel free to browse through our menu, select your desired items, and proceed to place your
       order for convenient pickup at our store.

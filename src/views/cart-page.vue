@@ -19,7 +19,9 @@
     <p class="cart-total">Total in cart: ${{ total }}</p>
   </div>
   <div>
-    <button class="confirm" @click="confirmOrder">Confirm Order</button>
+    <button class="confirm" @click="confirmOrder" :disabled="cart.length === 0">
+      Confirm Order
+    </button>
     <button class="clear" @click="clearCart">Clear Cart</button>
   </div>
 </template>
