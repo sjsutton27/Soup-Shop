@@ -6,19 +6,19 @@
         Uppercase, and one Special character)
       </p>
       <label for="email">E-Mail</label>
-      <input type="email" id="email" v-model.trim="email" />
+      <input type="email" id="email" v-model.trim="email" placeholder="E-Mail..." />
     </div>
     <div class="form-control">
       <label for="password">Password</label>
-      <input type="password" id="password" v-model.trim="password" />
+      <input type="password" id="password" v-model.trim="password" placeholder="Password..." />
     </div>
     <button class="login-button">{{ submitButtonCaption }}</button>
     <button class="signup-button" type="button" mode="flat" @click="switchAuthMode">
       {{ switchModeButtonCaption }}
     </button>
-    <button v-if="isLoggedIn" class="logout-button" @click="logout">Logout</button>
   </form>
 </template>
+
 <script>
 export default {
   data() {
@@ -30,20 +30,19 @@ export default {
     }
   },
   computed: {
-    //For user login button checks if user is login or needs to signup
+    //Top Button (submit button) submits the form and bottom button switches the form signup or login
     submitButtonCaption() {
       if (this.mode === "login") {
         return "Login"
       } else {
-        return "SignUp"
+        return "Signup"
       }
     },
-    //Tells user to signup or login based on what the user needs to do
     switchModeButtonCaption() {
       if (this.mode === "login") {
-        return "SignUp"
+        return "Signup instead"
       } else {
-        return "Login"
+        return "Login instead"
       }
     },
     isLoggedIn() {
@@ -65,16 +64,17 @@ export default {
         this.formIsValid = false
         return
       }
+
       //send http request...
       try {
         if (this.mode === "login") {
-          await this.$store.dispatch("authentication/login", {
+          await this.$store.dispatch("login", {
             email: this.email,
             password: this.password
           })
         } else {
           //dispatches our action.js in auth modules
-          await this.$store.dispatch("authentication/register", {
+          await this.$store.dispatch("register", {
             email: this.email,
             password: this.password
           })
@@ -84,16 +84,13 @@ export default {
         this.error = err.message || "Failed to authenticate, check your login"
       }
     },
+
     switchAuthMode() {
-      //mode is to see if the user is logging in or signing up
       if (this.mode === "login") {
         this.mode = "signup"
       } else {
         this.mode = "login"
       }
-    },
-    logout() {
-      this.$store.dispatch("authentication/logout")
     }
   }
 }

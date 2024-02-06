@@ -11,6 +11,9 @@
             {{ nav }}
           </router-link>
         </li>
+        <li v-if="isLoggedIn">
+          <button class="logout-button" @click="logout">Logout</button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -30,10 +33,19 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    isLoggedIn() {
+      console.log(this.$store.getters.isAuthenticated)
+      return this.$store.getters.isAuthenticated
+    }
+  },
   methods: {
     getRoute(nav) {
       return this.routes[nav]
+    },
+    logout() {
+      this.$store.dispatch("logout")
+      this.$router.replace("/home")
     }
   }
 }
@@ -92,6 +104,29 @@ export default {
 }
 
 .nav-item:hover {
+  background-color: orangered;
+  color: yellow;
+  border: 1px solid coral;
+}
+
+.logout-button {
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: coral;
+  background-color: black;
+  padding: 5px 10px;
+  margin-right: 10px;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  transition:
+    background-color 0.1s,
+    color 0.1s;
+}
+
+.logout-button:hover {
   background-color: orangered;
   color: yellow;
   border: 1px solid coral;

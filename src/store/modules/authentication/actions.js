@@ -14,18 +14,16 @@ export default {
     const responseData = await response.json()
 
     if (!response.ok) {
-      console.log(responseData)
       const error = new Error(responseData.message || "failed to authenticate.")
       throw error
     }
-
-    console.log(responseData)
     // Should get: idtoken, email, refresh Token, expireIn variable, localId
     context.commit("setUser", {
       token: responseData.idToken,
       userId: responseData.localId,
       tokenExpiration: responseData.expiresIn
     })
+    console.log(responseData.idToken)
   },
   //async allows the data send a response to the API and then once the response arrives we ether send an error or perform what needs to be done with the return data
   async register(context, payload) {
@@ -42,7 +40,7 @@ export default {
       }
     )
     const responseData = await response.json()
-
+    console.log(responseData)
     if (!response.ok) {
       console.log(responseData)
       const error = new Error(responseData.message || "failed to authenticate.")
