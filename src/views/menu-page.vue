@@ -106,7 +106,7 @@ export default {
   font-weight: bold;
   text-align: center;
   border-bottom: 1px solid gray;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px;
 }
 .card {
   border: 1px solid black;
