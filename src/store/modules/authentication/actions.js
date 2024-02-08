@@ -1,9 +1,11 @@
 export default {
+  //Backend, Promises
   async login(context, payload) {
     const response = await fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAWwTBObTT2xmc_aFD9cj9LQ_DarKovVHo",
       {
         method: "POST",
+        //POST the email and password into data base
         body: JSON.stringify({
           email: payload.email,
           password: payload.password,
@@ -55,6 +57,7 @@ export default {
       tokenExpiration: responseData.expiresIn
     })
   },
+  //when a user logout there database information turns to null to display the user is not login
   logout(context) {
     context.commit("setUser", {
       token: null,

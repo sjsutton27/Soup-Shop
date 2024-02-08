@@ -1,5 +1,6 @@
 <template>
   <div id="menu">
+    <h1 class="menu-heading">Menu</h1>
     <div class="card" v-for="item in menuItems" :key="item.id">
       <img class="menu-item-img" :src="item.image" alt="Menu Item" />
       <p>
@@ -7,7 +8,10 @@
         ><br />
         <span>{{ item.price }}</span
         ><br />
-        <span>Quantity: <input type="number" min="0" v-model="item.quantity" /></span>
+        <span
+          >Quantity:
+          <input type="number" min="0" v-model="item.quantity" />
+        </span>
         <br />
       </p>
       <button
@@ -24,6 +28,7 @@
 export default {
   data() {
     return {
+      //Our selection of Items to choose from
       menuItems: [
         {
           id: 1,
@@ -71,12 +76,19 @@ export default {
     }
   },
   methods: {
+    //what each item has
     addToCart(idItem, imageItem, nameItem, quantityItem, priceItem) {
       const id = idItem
       const image = imageItem
       const name = nameItem
       const quantity = quantityItem
       const price = priceItem
+
+      // Check if quantity is not a positive integer
+      if (!Number.isInteger(quantity) || quantity < 0) {
+        alert("Quantity must be a non-negative and can't have a decimal.")
+        return
+      }
 
       this.$store.commit("cart/setItemInCart", { id, image, name, quantity, price })
     }
@@ -88,6 +100,13 @@ export default {
 .menu {
   display: flex;
   flex-direction: column;
+}
+.menu-heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px; /* Adjust as needed */
 }
 .card {
   border: 1px solid black;

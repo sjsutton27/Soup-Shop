@@ -6,11 +6,13 @@
         <div class="logo-title">{{ logo }}</div>
       </div>
       <ul class="nav-list">
-        <li v-for="nav in navItems" :key="nav">
-          <router-link :to="getRoute(nav)" class="nav-item">
-            {{ nav }}
-          </router-link>
-        </li>
+        <template v-for="nav in navItems">
+          <li :key="nav" v-if="!isLoggedIn || nav !== 'Authentication'">
+            <router-link :to="getRoute(nav)" class="nav-item">
+              {{ nav }}
+            </router-link>
+          </li>
+        </template>
         <li v-if="isLoggedIn">
           <button class="logout-button" @click="logout">Logout</button>
         </li>
@@ -23,6 +25,7 @@
 export default {
   data() {
     return {
+      //NavBar Items and Routes to the other pages
       logo: "Soup Shop",
       navItems: ["Home", "Menu", "Cart", "Authentication"],
       routes: {
@@ -34,15 +37,18 @@ export default {
     }
   },
   computed: {
+    //checks if a user is login or not, using the isAuthenticated getter from Vuex store
     isLoggedIn() {
       console.log(this.$store.getters.isAuthenticated)
       return this.$store.getters.isAuthenticated
     }
   },
   methods: {
+    //gets routes from Router
     getRoute(nav) {
       return this.routes[nav]
     },
+    //dispatches to the logout Action Function in authentication/actions.js and routes back to homepage after user clicks logout
     logout() {
       this.$store.dispatch("logout")
       this.$router.replace("/home")
@@ -110,6 +116,7 @@ export default {
 }
 
 .logout-button {
+  font: bold;
   cursor: pointer;
   transition: all 0.3s;
   text-decoration: none;

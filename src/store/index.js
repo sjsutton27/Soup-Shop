@@ -8,9 +8,5 @@ const store = createStore({
     cart: cartModule,
     authentication: authenticationModule
   }
-  //state is a global variable used in our modules
-  // state() {
-  //   return {}
-  // }
 })
 export default store

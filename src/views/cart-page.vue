@@ -1,5 +1,6 @@
 <template>
   <div class="cart">
+    <h1 class="cart-heading">Cart</h1>
     <ul class="cart-items" v-if="cart && cart.length != 0">
       <div class="cart-item" v-for="item in cart" :key="item.id">
         <img class="menu-item-img" :src="item.image" alt="Cart Item" />
@@ -30,20 +31,24 @@
 export default {
   computed: {
     cart() {
+      //gets the current state of the cart
       return this.$store.getters["cart/getCart"]
     },
     total() {
+      //gets the total based on the items in the cart
       return this.$store.getters["cart/getTotal"]
     }
   },
   methods: {
     removeItem(id) {
+      //uses the id to remove the item
       this.$store.commit("cart/removeItemInCart", id)
     },
     reduceQuantity(id) {
       this.$store.commit("cart/decreaseItemQuantity", id)
     },
     clearCart() {
+      //removes items in cart and database
       this.$store.dispatch("cart/clearCart")
     },
     confirmOrder() {
@@ -64,6 +69,15 @@ export default {
 </script>
 
 <style scoped>
+.cart-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .cart-items {
   border: 1px solid black;
   border-radius: 20px;

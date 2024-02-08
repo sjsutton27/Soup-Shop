@@ -26,12 +26,14 @@ export default {
       email: "",
       password: "",
       formIsValid: true,
+      //mode is used to see if the user is trying to login or sign up, set to login by default
       mode: "login"
     }
   },
   computed: {
     //Top Button (submit button) submits the form and bottom button switches the form signup or login
     submitButtonCaption() {
+      // 1st button submits login or sign up
       if (this.mode === "login") {
         return "Login"
       } else {
@@ -39,6 +41,7 @@ export default {
       }
     },
     switchModeButtonCaption() {
+      //2nd button Allows user to choose to sign up or login instead
       if (this.mode === "login") {
         return "Signup instead"
       } else {
@@ -46,6 +49,7 @@ export default {
       }
     },
     isLoggedIn() {
+      //Check if user is already login based on token
       console.log("isLoggedIn:", this.$store.getters.isAuthenticated)
       return this.$store.getters.isAuthenticated
     }
@@ -86,6 +90,7 @@ export default {
     },
 
     switchAuthMode() {
+      //switches depending on what the user is doing
       if (this.mode === "login") {
         this.mode = "signup"
       } else {

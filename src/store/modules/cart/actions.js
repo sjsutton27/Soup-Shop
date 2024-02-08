@@ -27,6 +27,7 @@ export default {
   },
 
   async cartItem(context, data) {
+    //Cart Item data
     const itemData = {
       idItem: data.id,
       image: data.image,
@@ -37,10 +38,6 @@ export default {
 
     //Get the authentication token from Vuex state
     const token = context.getters.token
-
-    // if (!token) {
-    //   throw new Error("Authentication token is missing.")
-    // }
 
     // Construct the request URL ?auth is a query paramete
     const url =
@@ -62,5 +59,32 @@ export default {
       ...itemData,
       id: data.id
     })
+  },
+  async cartReceipt(context) {
+    const token = context.getters.token
+
+    // Construct the request URL for fetching the entire cart
+    const url = `https://soup-shop-e2841-default-rtdb.firebaseio.com/cart.json?auth=${token}`
+
+    try {
+      // Fetch the cart data from the database
+      const response = await fetch(url, {
+        method: "GET"
+      })
+
+      if (!response.ok) {
+        // Handle error
+        console.error("Error while fetching receipt data:", response.statusText)
+        return
+      }
+
+      // Parse the JSON response
+      const receiptData = await response.json()
+
+      // Commit the receipt data to the store
+      context.commit("cartReceipt", receiptData)
+    } catch (error) {
+      console.error("Error while fetching receipt data:", error.message)
+    }
   }
 }
