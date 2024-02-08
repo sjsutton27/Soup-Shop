@@ -59,32 +59,5 @@ export default {
       ...itemData,
       id: data.id
     })
-  },
-  async cartReceipt(context) {
-    const token = context.getters.token
-
-    // Construct the request URL for fetching the entire cart
-    const url = `https://soup-shop-e2841-default-rtdb.firebaseio.com/cart.json?auth=${token}`
-
-    try {
-      // Fetch the cart data from the database
-      const response = await fetch(url, {
-        method: "GET"
-      })
-
-      if (!response.ok) {
-        // Handle error
-        console.error("Error while fetching receipt data:", response.statusText)
-        return
-      }
-
-      // Parse the JSON response
-      const receiptData = await response.json()
-
-      // Commit the receipt data to the store
-      context.commit("cartReceipt", receiptData)
-    } catch (error) {
-      console.error("Error while fetching receipt data:", error.message)
-    }
   }
 }
