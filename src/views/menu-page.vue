@@ -30,42 +30,42 @@ export default {
           name: "Bean Beef Chili",
           price: 7.99,
           quantity: 0,
-          image: "src/assets/images/Bean-Beef-Chili.jpg"
+          image: "/assets/images/Bean-Beef-Chili.jpg"
         },
         {
           id: 2,
           name: "Chicken Noodle Soup",
           price: 5.99,
           quantity: 0,
-          image: "src/assets/images/chicken-noodle-soup.jpg"
+          image: "/assets/images/chicken-noodle-soup.jpg"
         },
         {
           id: 3,
           name: "Naruto Soup Special",
           price: 6.99,
           quantity: 0,
-          image: "src/assets/images/naruto-soup.jpg"
+          image: "/assets/images/naruto-soup.jpg"
         },
         {
           id: 4,
           name: "Potato Cheese Soup",
           price: 6.25,
           quantity: 0,
-          image: "src/assets/images/potato-cheese-soup.jpg"
+          image: "/assets/images/potato-cheese-soup.jpg"
         },
         {
           id: 5,
           name: "Potato Leek Soup",
           price: 6.99,
           quantity: 0,
-          image: "src/assets/images/potato-leek.jpg"
+          image: "/assets/images/potato-leek.jpg"
         },
         {
           id: 6,
           name: "Tomato Soup",
           price: 5.25,
           quantity: 0,
-          image: "src/assets/images/Tomato-Soup.jpg"
+          image: "/assets/images/Tomato-Soup.jpg"
         }
       ]
     }
