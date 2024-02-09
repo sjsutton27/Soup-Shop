@@ -51,6 +51,7 @@ export default {
     //dispatches to the logout Action Function in authentication/actions.js and routes back to homepage after user clicks logout
     logout() {
       this.$store.dispatch("logout")
+      this.$store.dispatch("cart/clearCart")
       this.$router.replace("/home")
     }
   }
