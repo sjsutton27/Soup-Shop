@@ -1,4 +1,5 @@
 The Soup-Shop is a comprehensive Full Stack web application built with the Vue framework for the frontend, while Firebase serves as the backend, providing real-time database, hosting, and authentication functionalities.
+The purpose of making this website was to develop the full understanding of how to make a full stack website using a Front-end Framework, Establising a backend, storing into a database, and hosting a website. 
 
 URL: https://soup-shop-e2841.firebaseapp.com/home
 
